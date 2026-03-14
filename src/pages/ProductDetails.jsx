@@ -57,7 +57,7 @@ const ProductDetail = () => {
             <ShoppingCart size={22} /> Añadir al carrito
           </button>
 
-          {/* Trust Badges (Makes it look professional) */}
+          {/* Trust Badges */}
           <div className="mt-10 grid grid-cols-2 gap-4 pt-8 border-t border-slate-100">
             <div className="flex items-center gap-3 text-sm text-slate-500">
               <Truck className="text-blue-600" size={24} />

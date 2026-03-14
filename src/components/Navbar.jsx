@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, User, LogOut, Menu, X } from 'lucide-react'; // Importamos iconos
-import { useAuth } from '../context/AuthContext'; // Importamos tu contexto de Auth
-import { useCart } from '../context/CartContext'; // Importamos tu contexto de Carrito
+import { ShoppingBag, User, LogOut, Menu, X } from 'lucide-react'; // iconos
+import { useAuth } from '../context/AuthContext'; 
+import { useCart } from '../context/CartContext'; 
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user, logout } = useAuth(); // Obtenemos el usuario y la función de salir
-  const { cart } = useCart();
+  const { user, logout } = useAuth();
   const location = useLocation();
 
   const totalItems = cart?.reduce((acc, item) => acc + item.quantity, 0) || 0;
@@ -18,7 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Color del texto basado en el scroll
+  
   const textColor = isScrolled ? 'text-aureo-dark' : 'text-white';
 
   return (

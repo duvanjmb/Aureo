@@ -43,7 +43,7 @@ const Catalog = () => {
       <div className="w-24 h-1 bg-aureo-gold mx-auto mt-6"></div>
     </header>
 
-      {/* Grid Responsivo: 1 columna en móvil, 2 en tablet, 4 en escritorio */}
+      {/* responsive grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {productos.map((prod) => (
           <ProductCard key={prod.id} producto={prod} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-// 1. Importar las páginas
+// 1. Import components and pages
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetails';

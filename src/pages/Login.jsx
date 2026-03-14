@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-
+/*connection to backend*/
     const response = fetch('http://localhost:3000/login/auth/login?' + email + '&' + password)
 
     if (response.ok) { 

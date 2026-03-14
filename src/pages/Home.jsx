@@ -8,7 +8,7 @@ const Home = () => {
     <div className="flex flex-col w-full">
       {/* --- HERO SECTION --- */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-aureo-dark">
-        {/* Imagen de fondo con overlay oscuro */}
+        
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
@@ -45,7 +45,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- SECCIÓN DE VALORES (Propuesta de Valor) --- */}
+      {/* Aureo Values */}
       <section className="py-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="flex flex-col items-center">
@@ -72,7 +72,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- CATEGORÍAS DESTACADAS --- */}
+      {/* Categoeries/working */}
       <section className="py-24 bg-aureo-cream">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -86,7 +86,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Categoría 1 */}
+            {/* Category 1 */}
             <div className="relative h-96 group overflow-hidden cursor-pointer">
               <img 
                 src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=1930&auto=format&fit=crop" 
@@ -97,7 +97,7 @@ const Home = () => {
                 <p className="text-slate-200 mt-2">Perfección para tus momentos clave.</p>
               </div>
             </div>
-            {/* Categoría 2 */}
+            {/* Category 2 */}
             <div className="relative h-96 group overflow-hidden cursor-pointer">
               <img 
                 src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop" 
