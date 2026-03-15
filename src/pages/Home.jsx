@@ -72,7 +72,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Categoeries/working */}
+      {/* Categories/working */}
       <section className="py-24 bg-aureo-cream">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">

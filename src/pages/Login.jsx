@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; 
+import { useNavigate } from "react-router";
 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState(null);
+  const { login } = useAuth(); 
+  const navigate = useNavigate();
 
-  
-  
 
+  const handleSubmit = async (e) => { 
+  e.preventDefault();
+  setError('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError("");
+  try {
+    const response = await fetch(`http://localhost:3000/login?correo=${email}&clave=${password}`);
 
-/*connection to backend*/
-    const response = fetch('http://localhost:3000/login/auth/login?' + email + '&' + password)
-
-    if (response.ok) { 
-      login({  
+    if (response.ok) {
+      const data = await response.json(); 
+      
+      
+      login({ 
+        nombre: data.nombre || "Usuario",
         email: email,
-        rol: "cliente" 
+        rol: data.rol || "cliente" 
       });
-  
-    console.log("Sesión iniciada con éxito");
 
-    navigate('/');
+      console.log("Sesión iniciada con éxito");
+      navigate('/'); 
     } else {
-      setError("Credenciales inválidas");
+      setError('Credenciales incorrectas o usuario no encontrado');
     }
-  };
+  } catch (err) {
+    console.error("Error en la conexión:", err);
+    setError('No se pudo conectar con el servidor');
+  }
+};
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-aureo-cream px-6">

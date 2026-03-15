@@ -1,7 +1,6 @@
+// 1. Import components and pages
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-// 1. Import components and pages
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetails';
@@ -12,6 +11,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './context/AuthContext'; // Importa el proveedor de autenticación
+import Footer from './components/Footer';
 
 
 function App() {
@@ -27,8 +27,9 @@ function App() {
           <Route path="/nosotros" element={<AboutUs />} />
           <Route path="/carrito" element={<CartPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/registro" element={<Register />} />
         </Routes>
+        <Footer />
       </main>
 
       <footer className="p-10 bg-slate-50 text-center text-slate-400">

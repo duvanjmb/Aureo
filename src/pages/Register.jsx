@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({ nombre: '', email: '', password: '' });
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Registrando usuario:", formData);
+    setError(null);
+
+    try {
+      const url = `http://localhost:3000/register?nombre=${formData.nombre}&correo=${formData.email}&clave=${formData.password}`;
+      
+      const response = await fetch(url);
+
+      if (response.ok) {
+        console.log("Usuario registrado con éxito");
+        navigate('/login'); 
+      } else {
+        const msg = await response.text();
+        setError(msg || 'Error al registrar usuario');
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setError('No se pudo conectar con el servidor');
+    }
   };
 
   return (

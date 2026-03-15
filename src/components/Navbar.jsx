@@ -7,6 +7,7 @@ import { useCart } from '../context/CartContext';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, logout } = useAuth();
+  const { cart } = useCart();
   const location = useLocation();
 
   const totalItems = cart?.reduce((acc, item) => acc + item.quantity, 0) || 0;
@@ -31,17 +32,17 @@ const Navbar = () => {
           AUREO <span className="text-aureo-gold font-light">STORE</span>
         </Link>
 
-        {/* NAVEGACIÓN CENTRAL */}
+        
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className={`text-xs uppercase tracking-widest font-bold hover:text-aureo-gold ${textColor}`}>Inicio</Link>
           <Link to="/tienda" className={`text-xs uppercase tracking-widest font-bold hover:text-aureo-gold ${textColor}`}>Tienda</Link>
           <Link to="/nosotros" className={`text-xs uppercase tracking-widest font-bold hover:text-aureo-gold ${textColor}`}>Nosotros</Link>
         </div>
 
-        {/* ICONOS DE ACCIÓN (Login y Carrito) */}
+       
         <div className="flex items-center gap-6">
           
-          {/* LÓGICA DE LOGIN / USUARIO */}
+          
           {user ? (
             <div className="flex items-center gap-4">
               <span className={`text-[10px] uppercase tracking-widest font-bold hidden sm:block ${textColor}`}>
@@ -65,7 +66,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* CARRITO */}
+       
           <Link to="/carrito" className={`relative p-1 hover:text-aureo-gold transition-colors ${textColor}`}>
             <ShoppingBag size={22} />
             {totalItems > 0 && (
