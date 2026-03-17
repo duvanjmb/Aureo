@@ -11,16 +11,26 @@ const Register = () => {
     setError(null);
 
     try {
-      const url = `http://localhost:3000/register?nombre=${formData.nombre}&correo=${formData.email}&clave=${formData.password}`;
       
-      const response = await fetch(url);
+      const response = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          correo: formData.email,
+          clave: formData.password
+        })
+      });
+
+      const data = await response.json();
 
       if (response.ok) {
-        console.log("Usuario registrado con éxito");
+        console.log("Usuario registrado con éxito", data.message);
         navigate('/login'); 
       } else {
-        const msg = await response.text();
-        setError(msg || 'Error al registrar usuario');
+        setError(data.message || 'Error al registrar usuario');
       }
     } catch (err) {
       console.error("Error:", err);
@@ -41,7 +51,8 @@ const Register = () => {
             <label className="block text-xs font-bold uppercase tracking-wider mb-2">Nombre Completo</label>
             <input 
               type="text" 
-              className="w-full border-b border-slate-300 py-2 focus:border-aureo-gold outline-none bg-transparent"
+              className="w-full border-b border-slate-300 py-2 text-black focus:border-aureo-gold outline-none bg-transparent"
+              placeholder='Nombre completo'
               onChange={(e) => setFormData({...formData, nombre: e.target.value})}
               required
             />
@@ -50,7 +61,8 @@ const Register = () => {
             <label className="block text-xs font-bold uppercase tracking-wider mb-2">Email</label>
             <input 
               type="email" 
-              className="w-full border-b border-slate-300 py-2 focus:border-aureo-gold outline-none bg-transparent"
+              className="w-full border-b border-slate-300 py-2 text-black focus:border-aureo-gold outline-none bg-transparent"
+              placeholder='Ingresa tu email'
               onChange={(e) => setFormData({...formData, email: e.target.value})}
               required
             />
@@ -59,7 +71,8 @@ const Register = () => {
             <label className="block text-xs font-bold uppercase tracking-wider mb-2">Contraseña</label>
             <input 
               type="password" 
-              className="w-full border-b border-slate-300 py-2 focus:border-aureo-gold outline-none bg-transparent"
+              className="w-full border-b border-slate-300 py-2 text-black focus:border-aureo-gold outline-none bg-transparent"
+              placeholder='Ingresa contraseña segura'
               onChange={(e) => setFormData({...formData, password: e.target.value})}
               required
             />

@@ -53,7 +53,8 @@ const Login = () => {
             <label className="block text-xs font-bold uppercase tracking-wider mb-2">Email</label>
             <input 
               type="email" 
-              className="w-full border-b border-slate-300 py-2 focus:border-aureo-gold outline-none transition-colors bg-transparent"
+              className="w-full border-b border-slate-300 py-2 text-black focus:border-aureo-gold outline-none bg-transparent"
+              placeholder='tu@email.com'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -63,7 +64,8 @@ const Login = () => {
             <label className="block text-xs font-bold uppercase tracking-wider mb-2">Contraseña</label>
             <input 
               type="password" 
-              className="w-full border-b border-slate-300 py-2 focus:border-aureo-gold outline-none transition-colors bg-transparent"
+              className="w-full border-b border-slate-300 py-2 text-black focus:border-aureo-gold outline-none bg-transparent"
+              placeholder="Ingresa tu contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
