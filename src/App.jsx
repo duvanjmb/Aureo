@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './context/AuthContext'; // Importa el proveedor de autenticación
 import Footer from './components/Footer';
+import AdminAddProduct from './admin/AdminAddProduct';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/carrito" element={<CartPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Register />} />
+          <Route path="/admin/agregar-producto" element={<AdminAddProduct />} />
         </Routes>
         <Footer />
       </main>
